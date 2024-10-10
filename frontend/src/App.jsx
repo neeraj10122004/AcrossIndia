@@ -7,9 +7,6 @@ function App() {
   return (
     <>
       <Router>
-      <div className=" flex justify-center items-center bg-black text-white ">
-        AroundTheWorld
-      </div>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>} />

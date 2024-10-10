@@ -3,9 +3,8 @@ import { Navbar } from '../components/Navbar'
 
 export const Home = () => {
   return (
-    <div className=" flex justify-center items-center bg-black text-white ">
+    <div>
         <Navbar/>
-        Home
     </div>
   )
 }

@@ -4,9 +4,8 @@ import { Navbar } from '../components/Navbar'
 export const About = () => {
   return (
     
-    <div className=" flex justify-center items-center bg-black text-white ">
+    <div>
         <Navbar/>
-        About
     </div>
   )
 }
