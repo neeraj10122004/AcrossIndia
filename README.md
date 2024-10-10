@@ -5,4 +5,6 @@
 
 Tech Stack : MERN
 
-mongobb atlas
+mongodb atlas
+react-router-dom
+mongoose
