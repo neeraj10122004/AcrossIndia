@@ -6,6 +6,9 @@ export const Navbar = () => {
       <div className=' flex items-center justify-center gap-10 '>
         <div className=' rounded  bg-black text-white '>ICON</div>
         <div><Link to='/'>Home</Link></div>
+        <div><Link to='/place'>Place</Link></div>
+        <div><Link to='/attraction'>Attraction</Link></div>
+        <div><Link to='/food'>Food</Link></div>
         <div><Link to='/about'>About</Link></div>
       </div>
       <div className=' flex items-center justify-center gap-5 ' >
