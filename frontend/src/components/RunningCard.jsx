@@ -32,7 +32,7 @@ const RunningCard = () => {
   const { title, description, image } = data[currentIndex];
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center p-10 items-center h-[70vh]  bg-gray-100">
       <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-sm transition-transform transform hover:-translate-y-2">
         <img src={image} alt={title} className="w-full h-48 object-cover" />
         <div className="p-4">
