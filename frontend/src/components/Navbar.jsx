@@ -11,7 +11,7 @@ export const Navbar = () => {
       <div className=' flex items-center justify-center gap-5 ' >
         <div className=' rounded  bg-black text-white ' >SignIn</div>
         <div className=' rounded  bg-black text-white ' >SignUp</div>
-        <div className=' rounded  bg-black text-white ' >Acc</div>
+        <div className=' rounded-full p-2 bg-black text-white ' >Acc</div>
       </div>
     </div>
   )
