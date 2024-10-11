@@ -7,8 +7,8 @@ const Place = require('./models/Placemodel')
 const Attraction = require('./models/Attractionmodel')
 const Food = require('./models/Foodmodel')
 const Flight = require('./models/Flightmodel')
-const Booking = require('./models/Booking');
-const Hotel = require('./models/Hotel');
+const Booking = require('./models/Bookingmodel');
+const Hotel = require('./models/Hotelmodel');
 const Transport = require('./models/Transportmodel')
 const Guide = require('./models/Guidemodel')
 const app = express()
@@ -215,10 +215,10 @@ app.post('/hotel', async (req, res) => {
 });
 
 
-app.get('/hotels', async (req, res) => {
+app.get('/hotel', async (req, res) => {
     try {
     
-        const hotels = await Hotel.find();
+        const hotel = await Hotel.find();
         res.status(200).json(hotels);
     } catch (error) {
         console.error(error); 
@@ -226,7 +226,7 @@ app.get('/hotels', async (req, res) => {
     }
 });
 
-app.post('/bookings', async (req, res) => {
+app.post('/booking', async (req, res) => {
     const { userId, hotelId, checkInDate, checkOutDate, totalAmount } = req.body;
 
     try {
@@ -248,11 +248,11 @@ app.post('/bookings', async (req, res) => {
 });
 
 
-app.get('/bookings', async (req, res) => {
+app.get('/booking', async (req, res) => {
     try {
         
-        const bookings = await Booking.find().populate('userId').populate('hotelId');
-        res.status(200).json(bookings);
+        const booking = await Booking.find().populate('userId').populate('hotelId');
+        res.status(200).json(booking);
     } catch (error) {
         console.error(error); 
         res.status(500).send("Server Error");
@@ -260,7 +260,7 @@ app.get('/bookings', async (req, res) => {
 });
 
 
-app.get('/bookings/:id', async (req, res) => {
+app.get('/booking/:id', async (req, res) => {
     try {
         const booking = await Booking.findById(req.params.id).populate('userId').populate('hotelId');
         if (!booking) {
