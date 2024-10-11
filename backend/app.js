@@ -6,6 +6,9 @@ const User = require('./models/Usermodel')
 const Place = require('./models/Placemodel')
 const Attraction = require('./models/Attractionmodel')
 const Food = require('./models/Foodmodel')
+const Flight = require('./models/Flightmodel')
+const Booking = require('./models/Booking');
+const Hotel = require('./models/Hotel');
 const Transport = require('./models/Transportmodel')
 const Guide = require('./models/Guidemodel')
 const app = express()
@@ -156,3 +159,116 @@ app.post('/transport', async (req,res)=>{
     }
     
 })
+
+
+
+app.post('/flight', async (req, res) => {
+    const { airline, departure, destination, price, departureTime, arrivalTime } = req.body;
+
+    try {
+        let flight = await Flight.findOne({ airline, departure, destination, departureTime });
+
+        if (!flight) {
+            let newFlight = new Flight({
+                airline,
+                departure,
+                destination,
+                price,
+                departureTime,
+                arrivalTime
+            });
+
+            await newFlight.save();
+            res.send("Flight added successfully");
+        } else {
+            res.send("Flight already exists");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Server Error");
+    }
+});
+
+
+
+app.post('/hotel', async (req, res) => {
+    const { name, location, rating, amenities, pricePerNight, availability } = req.body;
+
+    try {
+    
+        const newHotel = new Hotel({
+            name,
+            location,
+            rating,
+            amenities,
+            pricePerNight,
+            availability,
+        });
+
+        
+        await newHotel.save();
+        res.status(201).send("Hotel added successfully");
+    } catch (error) {
+        console.error(error); 
+        res.status(500).send("Server Error");
+    }
+});
+
+
+app.get('/hotels', async (req, res) => {
+    try {
+    
+        const hotels = await Hotel.find();
+        res.status(200).json(hotels);
+    } catch (error) {
+        console.error(error); 
+        res.status(500).send("Server Error");
+    }
+});
+
+app.post('/bookings', async (req, res) => {
+    const { userId, hotelId, checkInDate, checkOutDate, totalAmount } = req.body;
+
+    try {
+        
+        const newBooking = new Booking({
+            userId,
+            hotelId,
+            checkInDate,
+            checkOutDate,
+            totalAmount,
+        });
+
+        await newBooking.save();
+        res.status(201).send("Booking created successfully");
+    } catch (error) {
+        console.error(error); 
+        res.status(500).send("Server Error");
+    }
+});
+
+
+app.get('/bookings', async (req, res) => {
+    try {
+        
+        const bookings = await Booking.find().populate('userId').populate('hotelId');
+        res.status(200).json(bookings);
+    } catch (error) {
+        console.error(error); 
+        res.status(500).send("Server Error");
+    }
+});
+
+
+app.get('/bookings/:id', async (req, res) => {
+    try {
+        const booking = await Booking.findById(req.params.id).populate('userId').populate('hotelId');
+        if (!booking) {
+            return res.status(404).send("Booking not found");
+        }
+        res.status(200).json(booking);
+    } catch (error) {
+        console.error(error); 
+        res.status(500).send("Server Error");
+    }
+});
