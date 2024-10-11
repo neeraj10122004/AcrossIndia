@@ -7,6 +7,7 @@ export const Home = () => {
   return (
     <div>
         <Navbar/>
+        <h1> Hiiiiii </h1>
 
     </div>
   )
