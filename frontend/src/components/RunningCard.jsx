@@ -24,10 +24,8 @@ const RunningCard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-    }, 3000); // Change content every 3 seconds
-
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [data.length]);
+    }, 4000); // Change content every 3 sec
+  }, []);
 
   const { title, description, image } = data[currentIndex];
 
@@ -35,7 +33,7 @@ const RunningCard = () => {
     <div className="flex justify-center p-10 items-center h-[70vh]  bg-gray-100">
       <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-sm transition-transform transform hover:-translate-y-2">
         <img src={image} alt={title} className="w-full h-48 object-cover" />
-        <div className="p-4">
+        <div className="p-4 h-48">
           <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
           <p className="text-gray-600 mt-2">{description}</p>
         </div>

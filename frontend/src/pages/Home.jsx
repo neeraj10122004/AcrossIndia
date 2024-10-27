@@ -9,9 +9,16 @@ export const Home = () => {
     <>
     <div>
         <Navbar/>
-        <div className='flex px-10 rounded-md  '>
+        <div className='flex p-10 '>
           <RunningCard/>
           <TitleCard/>
+        </div>
+        <div className='flex p-10 gap-10' >
+          <BasicCard/>
+          <BasicCard/>
+          <BasicCard/>
+          <BasicCard/>
+          <BasicCard/>
         </div>
         
     </div>
