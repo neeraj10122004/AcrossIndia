@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { About } from './pages/About'
@@ -5,11 +7,24 @@ import { Place } from './pages/Place'
 import { Attraction } from './pages/Attraction'
 import { Flights } from './pages/Flights'
 import { Hotels } from './pages/Hotels'
+import { Loading } from './components/Loading'
+import { SignIn } from './components/SignIn'
 
 function App() {
+  const [check, setcheck] = useState(true)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setcheck(!check)
+    }, 1000); 
+    return () => clearTimeout(timer);
+  }, []);
+
 
   return (
     <>
+      {check && <div><SignIn/></div>}
+      {!check &&
+      <div>
       <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
@@ -20,6 +35,8 @@ function App() {
         <Route path="/about" element={<About/>} />
       </Routes>
       </Router>
+      </div>
+      }
       
     </>
   )
