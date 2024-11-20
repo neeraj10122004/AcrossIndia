@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
     <div>
-        <Navbar/>
+        <Navbar loc="Home"/>
         <div className='flex p-10 '>
           <RunningCard/>
           <TitleCard/>

@@ -4,7 +4,7 @@ import { Navbar } from '../components/Navbar'
 export const Place = () => {
   return (
     <div>
-        <Navbar/>
+        <Navbar loc="Place"/>
     </div>
   )
 }

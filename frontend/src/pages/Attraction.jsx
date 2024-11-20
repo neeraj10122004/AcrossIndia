@@ -4,7 +4,7 @@ import { Navbar } from '../components/Navbar'
 export const Attraction = () => {
   return (
     <div>
-        <Navbar/>
+        <Navbar loc="Attraction"/>
     </div>
   )
 }

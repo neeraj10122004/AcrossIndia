@@ -5,7 +5,7 @@ export const About = () => {
   return (
     
     <div>
-        <Navbar/>
+        <Navbar loc="About"/>
     </div>
   )
 }
