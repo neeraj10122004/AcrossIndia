@@ -6,6 +6,7 @@ export const About = () => {
     
     <div>
         <Navbar loc="About"/>
+        
     </div>
   )
 }

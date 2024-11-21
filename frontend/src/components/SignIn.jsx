@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
+import { Nav } from './Nav';
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +13,10 @@ export const SignIn = () => {
   };
 
   return (
+    <>
+    <div className=" bg-gray-300 fixed top-0 left-0 w-full z-50">
+        <Nav />
+      </div>
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
             <form
                 className="bg-white p-8 rounded-lg shadow-lg w-96"
@@ -56,11 +62,11 @@ export const SignIn = () => {
 
                 <p className="text-center text-sm mt-4">
                     Don't have an account?{" "}
-                    <a href="#" className="text-blue-500 hover:underline">
-                        Register
-                    </a>
+                    <Link to="/signup" className="text-blue-500 hover:underline" >Register</Link>
+                        
                 </p>
             </form>
         </div>
+        </>
   )
 }

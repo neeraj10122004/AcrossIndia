@@ -49,6 +49,8 @@ export const Navbar = ({ loc }) => {
       </div>
       <div className="flex items-center justify-center gap-5">
         <Search />
+        <div className="rounded-full p-3 bg-gray-100 text-black"><Link to="/signin">SignIn</Link></div>
+        <div className="rounded-full p-3 bg-gray-100 text-black"><Link to="/signup">SignUp</Link></div>
         <div className="rounded-full p-3 bg-gray-100 text-black">Acc</div>
       </div>
     </div>

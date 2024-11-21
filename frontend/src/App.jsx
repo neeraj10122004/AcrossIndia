@@ -8,6 +8,7 @@ import { Attraction } from './pages/Attraction'
 import { Flights } from './pages/Flights'
 import { Hotels } from './pages/Hotels'
 import { Loading } from './components/Loading'
+import { SignUp } from './components/SignUp'
 import { SignIn } from './components/SignIn'
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-      {check && <div><SignIn/></div>}
+      {check && <div><Loading/></div>}
       {!check &&
       <div>
       <Router>
@@ -33,6 +34,8 @@ function App() {
         <Route path="/flights" element={<Flights/>} />
         <Route path="/hotels" element={<Hotels/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/signup" element={<SignUp/>} />
       </Routes>
       </Router>
       </div>

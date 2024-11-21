@@ -10,4 +10,4 @@ react-router-dom
 mongoose
 axios
 
-npm install framer-motion
+npm install @fortawesome/react-fontawesome
