@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import sunImage from '../assets/sun.jpg'; 
+import forImage from '../assets/For.jpg';
+import oceImage from '../assets/oce.jpg';
 
 const RunningCard = () => {
   const data = [
     {
       title: "Beautiful Sunset",
       description: "A stunning view of the sunset over the mountains.",
-      image: "https://via.placeholder.com/400x200/FF5733"
+      image: sunImage
     },
     {
       title: "Forest Path",
       description: "A peaceful path through a dense forest.",
-      image: "https://via.placeholder.com/400x200/33FF57"
+      image: forImage
     },
     {
       title: "Ocean Waves",
       description: "Gentle waves crashing onto a sandy beach.",
-      image: "https://via.placeholder.com/400x200/3375FF"
+      image: oceImage
     },
   ];
 
